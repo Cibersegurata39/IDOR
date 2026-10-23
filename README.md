@@ -33,6 +33,8 @@ Como resultado se ha descubierto el puerto 4000 con el servicio *http*, a travé
 
 La *web* en cuestión se encarga de crear automatismos (programador de tareas por tiempo)  para los usuarios registrados, es una especie de *cron* de *Linux*. Primero se va a realizar una enumeración *web* para ver si podemos obtener información útil para explotar la vulnerabilidad. El programa encargado de facilitarnos los directorios y archivos es *Dirbuster*, al cual le pasamos la *URL* víctima (http://172.17.0.2:4000) y la lista con la que hará la búsqueda (/usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt). Se han obtenido resultados provechosos al restringir la búsqueda a archivos *html* y *php*.
 
-<img width="957" height="673" alt="Captura de pantalla 2026-10-22 005337" src="https://github.com/user-attachments/assets/6d89cd6e-3537-4f8a-9fca-0e13d4dd7f27" />
+<img width="757" height="473" alt="Captura de pantalla 2026-10-22 005337" src="https://github.com/user-attachments/assets/6d89cd6e-3537-4f8a-9fca-0e13d4dd7f27" />
 
-De entre los archivos descubiertos destacan como especialmente útiles dos. Por un lado '/docs.html', el cual contiene información muy vaiosa de cómo funciona la API. Y por otro lado, 
+De entre los archivos descubiertos, destacan como especialmente útiles dos. Por un lado '/docs.html', el cual contiene información muy valiosa de cómo funciona la API. Y por otro lado, '/dashboard.html' proporciona información sobre los usuarios de la aplicación. Entre todos los datos que nos ofrece, nos interesa la ID de usuario pues es el que nos permitirá llevar a cabo el *IDOR*.
+
+<img width="755" height="477" alt="Captura de pantalla 2026-10-22 005221" src="https://github.com/user-attachments/assets/9deda17f-1eb6-420e-ab2b-195ff7008cc2" />
