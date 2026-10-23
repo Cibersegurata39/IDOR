@@ -6,7 +6,8 @@ En este nuevo repositorio de la sección de **Bug bounty** se va a tratar la vul
   <img src="https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
   <img src="https://img.shields.io/badge/-Kali-5e8ca8?style=for-the-badge&logo=kalilinux&logoColor=white" />
   <img src="https://img.shields.io/badge/-Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" />
-  nmap
+  <img src="https://img.shields.io/badge/-Nmap-6933FF?style=for-the-badge&logo=nmap&logoColor=white" />
+  <img src="https://img.shields.io/badge/-Dirbuster-005571?style=for-the-badge&logo=dirbuster&logoColor=white" />
   dirbuster
   
 </div>
@@ -41,7 +42,7 @@ De entre los archivos descubiertos, destacan como especialmente útiles dos. Por
 
 Investigando la documentación de la *API*, se encuentra la sgieunte tabla que explica las distintas acciones que se pueden hacer sobre las automatizaciones de los usuarios.
 
-|Accíon|Dirección|Explicación|
+|Accíon|Directorio|Explicación|
 |--|--|--|
 |GET | /api/v1/automations | List automations for X-User-Id|
 |POST|	/api/v1/automations|	Create an automation|
