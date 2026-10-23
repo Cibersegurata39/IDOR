@@ -8,8 +8,7 @@ En este nuevo repositorio de la sección de **Bug bounty** se va a tratar la vul
   <img src="https://img.shields.io/badge/-Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" />
   <img src="https://img.shields.io/badge/-Nmap-6933FF?style=for-the-badge&logo=nmap&logoColor=white" />
   <img src="https://img.shields.io/badge/-Dirbuster-005571?style=for-the-badge&logo=dirbuster&logoColor=white" />
-  dirbuster
-  
+  <img src="https://img.shields.io/badge/-Curl-0735511?style=for-the-badge&logo=curl&logoColor=white" />  
 </div>
 
 ## Introducción
