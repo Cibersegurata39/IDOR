@@ -7,6 +7,7 @@ En este nuevo repositorio de la sección de **Bug bounty** se va a tratar la vul
   <img src="https://img.shields.io/badge/-Kali-5e8ca8?style=for-the-badge&logo=kalilinux&logoColor=white" />
   <img src="https://img.shields.io/badge/-Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" />
   nmap
+  dirbuster
   
 </div>
 
@@ -30,4 +31,8 @@ Como resultado se ha descubierto el puerto 4000 con el servicio *http*, a travé
 
 <img width="692" height="198" alt="Captura de pantalla 2026-10-21 185214" src="https://github.com/user-attachments/assets/bcfca483-a706-455e-a185-8c2c0988270d" />
 
-La *web* en cuestión
+La *web* en cuestión se encarga de crear automatismos (programador de tareas por tiempo)  para los usuarios registrados, es una especie de *cron* de *Linux*. Primero se va a realizar una enumeración *web* para ver si podemos obtener información útil para explotar la vulnerabilidad. El programa encargado de facilitarnos los directorios y archivos es *Dirbuster*, al cual le pasamos la *URL* víctima (http://172.17.0.2:4000) y la lista con la que hará la búsqueda (/usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt). Se han obtenido resultados provechosos al restringir la búsqueda a archivos *html* y *php*.
+
+<img width="957" height="673" alt="Captura de pantalla 2026-10-22 005337" src="https://github.com/user-attachments/assets/6d89cd6e-3537-4f8a-9fca-0e13d4dd7f27" />
+
+De entre los archivos descubiertos destacan como especialmente útiles dos. Por un lado '/docs.html', el cual contiene información muy vaiosa de cómo funciona la API. Y por otro lado, 
