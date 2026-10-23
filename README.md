@@ -35,6 +35,17 @@ La *web* en cuestión se encarga de crear automatismos (programador de tareas po
 
 <img width="757" height="473" alt="Captura de pantalla 2026-10-22 005337" src="https://github.com/user-attachments/assets/6d89cd6e-3537-4f8a-9fca-0e13d4dd7f27" />
 
-De entre los archivos descubiertos, destacan como especialmente útiles dos. Por un lado '/docs.html', el cual contiene información muy valiosa de cómo funciona la API. Y por otro lado, '/dashboard.html' proporciona información sobre los usuarios de la aplicación. Entre todos los datos que nos ofrece, nos interesa la ID de usuario pues es el que nos permitirá llevar a cabo el *IDOR*.
+De entre los archivos descubiertos, destacan como especialmente útiles dos. Por un lado '/docs.html', el cual contiene información muy valiosa de cómo funciona la *API*. Y por otro lado, '/explore.html' proporciona información sobre los usuarios de la aplicación. Entre todos los datos que nos ofrece, nos interesa la ID de usuario pues es el que nos permitirá llevar a cabo el *IDOR*.
 
 <img width="755" height="477" alt="Captura de pantalla 2026-10-22 005221" src="https://github.com/user-attachments/assets/9deda17f-1eb6-420e-ab2b-195ff7008cc2" />
+
+Investigando la documentación de la *API*, se encuentra la sgieunte tabla que explica las distintas acciones que se pueden hacer sobre las automatizaciones de los usuarios.
+
+|Accíon|Dirección|Explicación|
+|--|--|--|
+|GET | /api/v1/automations | List automations for X-User-Id|
+|POST|	/api/v1/automations|	Create an automation|
+|GET|	/api/v1/automations/{id}|	Read one automation|
+|PUT|	/api/v1/automations/{id}|	Update fields|
+|DELETE|	/api/v1/automations/{id}|	Delete an automation|
+|GET|	/api/v1/automations/{id}/executions|	Run history|
