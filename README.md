@@ -6,6 +6,7 @@ En este nuevo repositorio de la sección de **Bug bounty** se va a tratar la vul
   <img src="https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
   <img src="https://img.shields.io/badge/-Kali-5e8ca8?style=for-the-badge&logo=kalilinux&logoColor=white" />
   <img src="https://img.shields.io/badge/-Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" />
+  nmap
   
 </div>
 
@@ -21,4 +22,12 @@ Para llevar a cabo este ejercicio se ha utilizado la plataforma *[Docker labs](h
 Como último paso se deben añadir la IP y la dirección en '/etc/hosts', cómo se ha realizado en anteriores publicaciones. Una vez realizadas estas acciones, se procede a explotar la vulnerabilidad.
 
 ## Explotación
-Sin embargo, 
+Sin embargo, al dirigirnos a la IP correspondiente, no se consigue alcanzar. Por ello se realiza un **Nmap** para encontrar posibles puertos a los que conectarnos (-p- indica que se miren todos y cada uno de los puertos). Se evita hacer ping (-Pn) y resolver nombres DNS (-n) para agilizar el escaneo. Para conocer las versiones que corren en cada puerto se indica el parámetro -sV y para añadirle velocidad al proceso se añade -T4.
+
+<code>nmap -Pn -n -sV -p- -T4 172.17.0.2</code>
+
+Como resultado se ha descubierto el puerto 4000 con el servicio *http*, a través de este nos deberemos conectar para acceder a la página.
+
+<img width="692" height="198" alt="Captura de pantalla 2026-10-21 185214" src="https://github.com/user-attachments/assets/bcfca483-a706-455e-a185-8c2c0988270d" />
+
+La *web* en cuestión
