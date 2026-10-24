@@ -39,7 +39,7 @@ De entre los archivos descubiertos, destacan como especialmente útiles dos. Por
 
 <img width="755" height="477" alt="Captura de pantalla 2026-10-22 005221" src="https://github.com/user-attachments/assets/9deda17f-1eb6-420e-ab2b-195ff7008cc2" />
 
-Investigando la documentación de la *API*, se encuentra la sgieunte tabla que explica las distintas acciones que se pueden hacer sobre las automatizaciones de los usuarios.
+Investigando la documentación de la *API*, se encuentra la siguiente tabla que explica las distintas acciones que se pueden hacer sobre las automatizaciones de los usuarios.
 
 |Accíon|Directorio|Explicación|
 |--|--|--|
@@ -49,3 +49,17 @@ Investigando la documentación de la *API*, se encuentra la sgieunte tabla que e
 |PUT|	/api/v1/automations/{id}|	Update fields|
 |DELETE|	/api/v1/automations/{id}|	Delete an automation|
 |GET|	/api/v1/automations/{id}/executions|	Run history|
+
+Con el comando *curl* se procede a visualizar las automatizaciones del usuario u_1001, el cual pertenece a Ariana Cole. En la propia documentación se informa de las cabeceras que son necesarias para realizar la petición. Otra error más se encuentra en la cabecera 'Authorization', donde a pesar de necesitar un token para autenticarse, sirve cualquiera cadena de caracteres que se escriba. Además, para que la respuesta sea más fácil de interpretar se usa el módulo 'json.tool' de *python* para que la información se muestre en formato *JSON*.
+
+<code>curl http://172.17.0.2:4000/api/v1/automations  -H "Authorization: BdsfsdDSFs" -H "X-User-Id: u_1001" | python3 -m json.tool</code>
+
+<img width="1356" height="837" alt="Captura de pantalla 2026-10-22 182928" src="https://github.com/user-attachments/assets/3fdfcb19-bffb-44f3-85ed-1e4db4f8803d" />
+
+Incluso, se puede eliminar una automatización en concreto del usuario deseado por medio de la cabecera *DELETE* e indicando la automatización a borrar.
+
+<code>curl -i -X DELETE  http://172.17.0.2:4000/api/v1/automations/au_6001  -H "Authorization: BdsfsdDSFs" -H "X-User-Id: u_1001"</code>
+
+<img width="1528" height="803" alt="Captura de pantalla 2026-10-22 183417" src="https://github.com/user-attachments/assets/4ee1fded-f096-485a-aacd-db39078fb940" />
+
+Este ejercicio nos ha permitido mostrar como la vulnerabilidad *IDOR*, presente en esta *web*, permite acceder a información de otros usuarios para no sólo  visualizarla, sino también tratarla. Y con el agravante de que ha sido posible realizarlo de manera no autenticada. 
