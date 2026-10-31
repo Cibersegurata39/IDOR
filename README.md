@@ -31,7 +31,7 @@ Como resultado se ha descubierto el puerto 4000 con el servicio *http*, a travé
 
 <img width="692" height="198" alt="Captura de pantalla 2026-10-21 185214" src="https://github.com/user-attachments/assets/bcfca483-a706-455e-a185-8c2c0988270d" />
 
-La *web* en cuestión se encarga de crear automatismos (programador de tareas por tiempo)  para los usuarios registrados, es una especie de *cron* de *Linux*. Primero se va a realizar una enumeración *web* para ver si podemos obtener información útil para explotar la vulnerabilidad. El programa encargado de facilitarnos los directorios y archivos es *Dirbuster*, al cual le pasamos la *URL* víctima (http://172.17.0.2:4000) y la lista con la que hará la búsqueda (/usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt). Se han obtenido resultados provechosos al restringir la búsqueda a archivos *html* y *php*.
+La *web* en cuestión se encarga de crear automatismos (programador de tareas por tiempo)  para los usuarios registrados, es una especie de *cron* de *Linux*. Primero se va a realizar una enumeración *web* para ver si podemos obtener información útil para explotar la vulnerabilidad. El programa encargado de facilitarnos los directorios y archivos es *Dirbuster*, al cual le pasamos la *URL* víctima (`http://172.17.0.2:4000`) y la lista con la que hará la búsqueda (/usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt). Se han obtenido resultados provechosos al restringir la búsqueda a archivos *html* y *php*.
 
 <img width="757" height="473" alt="Captura de pantalla 2026-10-22 005337" src="https://github.com/user-attachments/assets/6d89cd6e-3537-4f8a-9fca-0e13d4dd7f27" />
 
@@ -52,13 +52,13 @@ Investigando la documentación de la *API*, se encuentra la siguiente tabla que 
 
 Con el comando *curl* se procede a visualizar las automatizaciones del usuario u_1001, el cual pertenece a Ariana Cole. En la propia documentación se informa de las cabeceras que son necesarias para realizar la petición. Otra error más se encuentra en la cabecera 'Authorization', donde a pesar de necesitar un token para autenticarse, sirve cualquiera cadena de caracteres que se escriba. Además, para que la respuesta sea más fácil de interpretar se usa el módulo 'json.tool' de *python* para que la información se muestre en formato *JSON*.
 
-<code>curl http://172.17.0.2:4000/api/v1/automations  -H "Authorization: BdsfsdDSFs" -H "X-User-Id: u_1001" | python3 -m json.tool</code>
+<code>curl `http://172.17.0.2:4000/api/v1/automations  -H "Authorization: BdsfsdDSFs" -H "X-User-Id: u_1001" | python3 -m json.tool`</code>
 
 <img width="1356" height="837" alt="Captura de pantalla 2026-10-22 182928" src="https://github.com/user-attachments/assets/3fdfcb19-bffb-44f3-85ed-1e4db4f8803d" />
 
 Incluso, se puede eliminar una automatización en concreto del usuario deseado por medio de la cabecera *DELETE* e indicando la automatización a borrar.
 
-<code>curl -i -X DELETE  http://172.17.0.2:4000/api/v1/automations/au_6001  -H "Authorization: BdsfsdDSFs" -H "X-User-Id: u_1001"</code>
+<code>curl -i -X DELETE  `http://172.17.0.2:4000/api/v1/automations/au_6001  -H "Authorization: BdsfsdDSFs" -H "X-User-Id: u_1001"`</code>
 
 <img width="1528" height="803" alt="Captura de pantalla 2026-10-22 183417" src="https://github.com/user-attachments/assets/4ee1fded-f096-485a-aacd-db39078fb940" />
 
